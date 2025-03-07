@@ -10,8 +10,11 @@ def int_to_roman(num):
     if type(num)!= int or not (1 <= num <= 3999):
         return "Invalid input! Please enter a valid integer between 1 and 3999 inclusive."
 
-    x += num // 1000 * "M"
-    num = num - ((num // 1000) * 1000)
+#thousands
+    x += num // 1000 * "M" 
+
+#hundreds
+    num = num - ((num // 1000) * 1000) 
     if num // 100 < 4:
         x += num // 100 * "C"
     elif num // 100 == 4:
@@ -22,6 +25,8 @@ def int_to_roman(num):
         x += "D" + ((num // 100)-5) * "C"
     else:
         x += "CM"
+
+#tens
     num = num - ((num // 100) * 100)
     if num // 10 < 4:
         x += num // 10 * "X"
@@ -33,6 +38,8 @@ def int_to_roman(num):
         x += "L" + ((num // 10)-5) * "X"
     else:
         x += "XC"
+
+#units
     num = num - ((num // 10) * 10)
     if num < 4:
         x += num * "I"
@@ -44,4 +51,6 @@ def int_to_roman(num):
         x += "V" + (num-5)* "I"
     else:
         x += "IX"
+
+
     return x

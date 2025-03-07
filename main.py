@@ -7,8 +7,8 @@ def int_to_roman(num):
     """
     
     x = ""
-    if num < 1 or num > 3999:
-        return None
+    if type(num)!= int or not (1 <= num <= 3999):
+        return "Invalid input! Please enter a valid integer between 1 and 3999 inclusive."
 
     x += num // 1000 * "M"
     num = num - ((num // 1000) * 1000)
